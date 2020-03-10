@@ -1,24 +1,27 @@
-<!-- HTML & CSS----------------------------------- -->
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <title>My Weather Dashbord</title>
-  </head>
-  <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="scrypt.js">
-    <!-- Create DIV for top Header
-    - Add H1 tag 
-    - Add CSS for style width options 
---------------------------------------->
-    <div class="mainHeader">
-       <H1 is='mainH1'> Weather Dashbord</H1>
-    </div>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- JS -->
+    <link rel="script" href="app.js">
+
+</head>
+
+<body>
+
 
     <!-- Create DIV for Left Panel
     - Add CSS for style and width options
@@ -30,28 +33,46 @@
             Use 1 HTML <th> element to define "Past Searches" table heading
             Use the id attribute to uniquely define one table & row
 --------------------------------------->
-<div id='mainLeftPanel' class="mainLeftPanel">
-
-</div>
-    <!-- Create DIV for Right panel 
-    - Add CSS for style width options 
---------------------------------------->
-<div id='mainRightPanel' class="mainRightPanel">
-        <!-- Create DIV for top / weather pannel
-    - Add CSS for style width options 
---------------------------------------->
-    <div id='topRight' class="topRight">
-
+    <div class="container mainContainer">
+        <div class="container topContainer">
+            <div class="row">
+                <div id="colMain" class="col">
+                    Weather Dashbord
+                </div>
+            </div>
+        </div>
+        <div class="container leftContainer">
+            <!--left container-->
+            <div class="row">
+                <div class="col">
+                    <h2>Search for a City</h2><br>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="City"
+                            aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container rightContainer">
+            <!--Right container-->
+            <div class="row topRow">
+                <!--Top container in right container-->
+                <div id='topRow' class="col">
+                    <p class='p'>One of three columns</p>
+                </div>
+            </div>
+            <div class="row bottomRow">
+                <!--Bottom container in right container-->
+                <div class="col">
+                    <p>One of three columns</p>
+                </div>
+            </div>
+        </div>
     </div>
-        <!-- Create DIV for botom / weather panel
-    - Add CSS for style width options 
---------------------------------------->
-    <div id = 'bottomRight' class="bottomRight">
 
-    </div>
-</div>
+</body>
 
-  </body>
 </html>
-<!-- JS & JQuery
-------------------------------------->

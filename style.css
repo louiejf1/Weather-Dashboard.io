@@ -43,3 +43,53 @@ table {
 }
 
 /* Page Style CSS */
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+ h2 {
+	 font-size: 1.2em;
+ }
+ h3 {
+	font-size: 1.2em;
+}
+p {
+	font-size: 1.1em;
+}
+
+.topContainer {
+	background-color: rgb(75, 75, 75);
+	color: whitesmoke;
+	font-size: 2em;
+	text-align: center;
+	padding: 20px;
+	width: 100%;
+}
+
+.leftContainer {
+	background-color: rgb(238, 238, 238);
+	width: 30%;
+	height: 85vh;
+	float: left;
+	padding: 10px;
+}
+
+.rightContainer {
+	background-color: rgb(248, 248, 248);
+	width: 70%;
+	height: 85vh;
+	float: right;
+}
+.topRow {
+	background-color: rgb(248, 248, 248);
+	height: 40vh;
+	padding: 10px;
+}
+
+.bottomRow {
+	background-color: rgb(248, 248, 248);
+	height: 40vh;
+	clear: both;
+	padding: 10px;
+}
+
