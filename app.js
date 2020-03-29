@@ -2,7 +2,17 @@
 
 $(document).ready(function () {
 
+
+
+    let day = moment().format("D");
+    let month = moment().format("MMM");
+    let year = moment().format("YYYY");
+    let today = `${month} ${day} ${year}`
+    let newDate = "";
+
     var APIKey = "fa4500306ed9b5b17ead3f67dca48f5f";
+
+
 
     $(".searchButton").click(function () {
 
@@ -16,7 +26,7 @@ $(document).ready(function () {
         }).then(function (responce) {
 
             let results = responce;
-            console.log(responce);
+            //console.log(responce);
 
             let h2 = $('<h2>');
             let cityAppend = $(h2).text(JSON.stringify(results.name));
@@ -24,75 +34,115 @@ $(document).ready(function () {
             let humidity = results.main.humidity;
             let windspeed = results.wind.speed;
             let uvIndex = '';
-            console.log(typeof(temp));
+            //console.log(typeof(temp));
             let bottomDiv = $('#bottomcCol');
             $('#topCol').empty();
             $('#topCol').append(cityAppend);
+            $('#topCol').append(today + '<br>');
             $('#topCol').append('Temperature: ' + (parseInt(temp)) + ' F' + '<br>');
             $('#topCol').append('Windspeed: ' + (parseInt(windspeed)) + ' MPH');
-            
+
         });
 
         let queryURL5day = `https://api.openweathermap.org/data/2.5/forecast?&q=${city}&mode=JSON&appid=${APIKey}&units=imperial`;
-        
+
         $.ajax({
             url: queryURL5day,
             method: "GET"
         }).then(function (responce5day) {
-            console.log(responce5day);
-            
+
+            let results = responce5day.list;
+
+            //console.log(responce5day);
+            //console.log(responce5day.list[0].main.temp); 
+
+            let statsObj = [];
+            let cityTemp = [];
+            let cityHumid = [];
+            let qty = 5;
+
+            for (let i = 0; i < qty; i++) {
+
+                cityTemp.push(parseInt(results[i].main.temp));
+                cityHumid.push(parseInt(results[i].main.humidity));
+
+
+            };
+
+            for (let i = 0; i < cityTemp.length; i++) {
+                statsObj.push({
+                    "Temperature": cityTemp[i]
+                })
+
+            }
+
+            for (let i = 0; i < cityHumid.length; i++) {
+                statsObj.push({
+                    "Humidity": parseInt(cityHumid[i])
+                })
+
+            }
+
+            console.log(statsObj);
+
+
+            $('#bottomCol').empty();
+
+            //    cityTemp.forEach(tempElement => {
+
+            //     $('#bottomCol').append(`<div class="tempDiv">  "Temp" ${tempElement} </div>`);
+
+            for (let i = 0; i < statsObj.length; i++) {
+                //console.log( i )
+
+                let newStats = statsObj[i].Temperature;
+                newDate = parseInt(day);
+
+
+            }
+
+            $('#bottomCol').append(`
+            <div class="tempDiv">
+            <p>${month} ${newDate + 1}</P>
+            <p>"Temp" ${statsObj[0].Temperature} "F"</p>
+            <p>"Humid" ${statsObj[5].Humidity} "%"</p><br></div>`);
+
+            $('#bottomCol').append(`
+            <div class="tempDiv">
+            <p>${month} ${newDate + 2}</P>
+            <p>"Temp" ${statsObj[1].Temperature} "F"</p>
+            <p>"Humid" ${statsObj[6].Humidity} "%"</p><br></div>`);
+
+            $('#bottomCol').append(`
+            <div class="tempDiv">
+            <p>${month} ${newDate + 3}</P>
+            <p>"Temp" ${statsObj[2].Temperature} "F"</p>
+            <p>"Humid" ${statsObj[7].Humidity} "%"</p><br></div>`);
+
+            $('#bottomCol').append(`
+            <div class="tempDiv">
+            <p>${month} ${newDate + 4}</P>
+            <p>"Temp" ${statsObj[3].Temperature} "F"</p>
+            <p>"Humid" ${statsObj[8].Humidity} "%"</p><br></div>`);
+
+            $('#bottomCol').append(`
+            <div class="tempDiv">
+            <p>${month} ${newDate + 5}</P>
+            <p>"Temp" ${statsObj[4].Temperature} "F"</p>
+            <p>"Humid" ${statsObj[9].Humidity} "%"</p><br></div>`);
+
         });
 
-        
+        localStorage.setItem("City", city);
+
+        $('#clear').append(`
+        <p class="cityP">localStorage.getItem("City");</P>`);
 
     });
 
+    $(".clearButton").click(function () {
+        localStorage.clear();
+        $('.cityP').empty();
+    });
+
 });
-
-
-//Examples of API calls:
-// api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml
-
-
-
-// {
-//     "coord": {
-//         "lon": 139,
-//         "lat": 35
-//     },
-//     "weather": [{
-//         "id": 800,
-//         "main": "Clear",
-//         "description": "clear sky",
-//         "icon": "01n"
-//     }],
-//     "base": "stations",
-//     "main": {
-//         "temp": 281.52,
-//         "feels_like": 278.99,
-//         "temp_min": 280.15,
-//         "temp_max": 283.71,
-//         "pressure": 1016,
-//         "humidity": 93
-//     },
-//     "wind": {
-//         "speed": 0.47,
-//         "deg": 107.538
-//     },
-//     "clouds": {
-//         "all": 2
-//     },
-//     "dt": 1560350192,
-//     "sys": {
-//         "type": 3,
-//         "id": 2019346,
-//         "message": 0.0065,
-//         "country": "JP",
-//         "sunrise": 1560281377,
-//         "sunset": 1560333478
-//     },
-//     "timezone": 32400,
-//     "id": 1851632,
-//     "name": "Shuzenji",
-//     "cod": 200
-// }
