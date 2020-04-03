@@ -41,8 +41,8 @@ $(document).ready(function () {
             $('#topCol').append(cityAppend);
             $('#topCol').append(today + '<br>');
             $('#topCol').append('Temperature: ' + (parseInt(temp)) + ' F' + '<br>');
-            $('#topCol').append('Windspeed: ' + (parseInt(windspeed)) + ' MPH' + '<br>');
-            $('#topCol').append(`${icon}`);
+            $('#topCol').append('Windspeed: ' + (parseInt(windspeed)) + ' MPH' + " & " + icon + '<br>');
+            
 
         });
 
@@ -105,31 +105,31 @@ $(document).ready(function () {
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${moment().add(1, 'days').format('ddd MMM Do')}</P>
+            <p>${moment().add(1, 'days').format(' MMM Do')}</P>
             <p>Temp: ${statsObj[0].Temperature} F</p>
             <p>Humid: ${statsObj[5].Humidity}%</p><br></div>`);
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${moment().add(2, 'days').format('ddd MMM Do')}</P>
+            <p>${moment().add(2, 'days').format(' MMM Do')}</P>
             <p>Temp: ${statsObj[1].Temperature} F</p>
             <p>Humid: ${statsObj[6].Humidity}%</p><br></div>`);
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${moment().add(3, 'days').format('ddd MMM Do')}</P>
+            <p>${moment().add(3, 'days').format(' MMM Do')}</P>
             <p>Temp: ${statsObj[2].Temperature} F</p>
             <p>Humid: ${statsObj[7].Humidity}%</p><br></div>`);
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${moment().add(4, 'days').format('ddd MMM Do')}</P>
+            <p>${moment().add(4, 'days').format(' MMM Do')}</P>
             <p>Temp: ${statsObj[3].Temperature} F</p>
             <p>Humid: ${statsObj[8].Humidity}%</p><br></div>`);
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${moment().add(5, 'days').format('ddd MMM Do')}</P>
+            <p>${moment().add(5, 'days').format(' MMM Do')}</P>
             <p>Temp: ${statsObj[4].Temperature} F</p>
             <p>Humid: ${statsObj[9].Humidity}%</p><br></div>`);
 
