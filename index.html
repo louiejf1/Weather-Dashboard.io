@@ -25,16 +25,6 @@
 
 <body>
 
-
-    <!-- Create DIV for Left Panel
-    - Add CSS for style and width options
-    Cerate Input Elemnt
-        Table element
-            Use 1 HTML <table> element to define a table
-            Use 1 HTML <tr> element to define a table row
-            Use 1 HTML <td> element to define a table data
-            Use 1 HTML <th> element to define "Past Searches" table heading
-            Use the id attribute to uniquely define one table & row
 --------------------------------------->
     <div class="container mainContainer">
         <div class="container topContainer">
@@ -50,15 +40,16 @@
                 <div class="col">
                     <h2>Search for a City</h2><br>
                     <div class="input-group mb-3">
-                        <input id='cityLocation' type="text" class="form-control" placeholder="Miami"
+                        <input id='cityLocation' type="text" class="form-control" placeholder="City Name"
                             aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary searchButton" type="button" id="button-addon1">Search</button>
                         </div>
                         
                     </div>
                     <div id="clear">
-                        <button class="btn btn-outline-secondary clearButton" type="button" id="button-addon1">Clear</button>
+                        <button class="btn btn-outline-secondary searchButton" type="submit" id="button-addon1">Search</button>
+                        <button class="btn btn-outline-secondary clearButton" type="button" id="button-addon1">Clear</button><br><br>
+                        <p>Search History:</p>
                     </div>
                 </div>
             </div>

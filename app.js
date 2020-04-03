@@ -83,7 +83,7 @@ $(document).ready(function () {
 
             }
 
-            console.log(statsObj);
+            //console.log(statsObj);
 
 
             $('#bottomCol').empty();
@@ -103,40 +103,43 @@ $(document).ready(function () {
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${month} ${newDate + 1}</P>
-            <p>"Temp" ${statsObj[0].Temperature} "F"</p>
-            <p>"Humid" ${statsObj[5].Humidity} "%"</p><br></div>`);
+            <p>${moment().add(1, 'days').format('ddd MMM Do')}</P>
+            <p>Temp: ${statsObj[0].Temperature} F</p>
+            <p>Humid: ${statsObj[5].Humidity}%</p><br></div>`);
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${month} ${newDate + 2}</P>
-            <p>"Temp" ${statsObj[1].Temperature} "F"</p>
-            <p>"Humid" ${statsObj[6].Humidity} "%"</p><br></div>`);
+            <p>${moment().add(2, 'days').format('ddd MMM Do')}</P>
+            <p>Temp: ${statsObj[1].Temperature} F</p>
+            <p>Humid: ${statsObj[6].Humidity}%</p><br></div>`);
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${month} ${newDate + 3}</P>
-            <p>"Temp" ${statsObj[2].Temperature} "F"</p>
-            <p>"Humid" ${statsObj[7].Humidity} "%"</p><br></div>`);
+            <p>${moment().add(3, 'days').format('ddd MMM Do')}</P>
+            <p>Temp: ${statsObj[2].Temperature} F</p>
+            <p>Humid: ${statsObj[7].Humidity}%</p><br></div>`);
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${month} ${newDate + 4}</P>
-            <p>"Temp" ${statsObj[3].Temperature} "F"</p>
-            <p>"Humid" ${statsObj[8].Humidity} "%"</p><br></div>`);
+            <p>${moment().add(4, 'days').format('ddd MMM Do')}</P>
+            <p>Temp: ${statsObj[3].Temperature} F</p>
+            <p>Humid: ${statsObj[8].Humidity}%</p><br></div>`);
 
             $('#bottomCol').append(`
             <div class="tempDiv">
-            <p>${month} ${newDate + 5}</P>
-            <p>"Temp" ${statsObj[4].Temperature} "F"</p>
-            <p>"Humid" ${statsObj[9].Humidity} "%"</p><br></div>`);
+            <p>${moment().add(5, 'days').format('ddd MMM Do')}</P>
+            <p>Temp: ${statsObj[4].Temperature} F</p>
+            <p>Humid: ${statsObj[9].Humidity}%</p><br></div>`);
 
         });
 
         localStorage.setItem("City", city);
 
-        $('#clear').append(`
-        <p class="cityP">localStorage.getItem("City");</P>`);
+        cityId = localStorage.getItem("City");
+
+        
+        $('#clear').append(`<p class="cityP"> ${cityId}`);
+        console.log(cityId);
 
     });
 
