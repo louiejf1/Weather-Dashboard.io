@@ -26,7 +26,7 @@ $(document).ready(function () {
         }).then(function (responce) {
 
             let results = responce;
-            //console.log(responce);
+            console.log(responce);
 
             let h2 = $('<h2>');
             let cityAppend = $(h2).text(JSON.stringify(results.name));
@@ -34,13 +34,15 @@ $(document).ready(function () {
             let humidity = results.main.humidity;
             let windspeed = results.wind.speed;
             let uvIndex = '';
+            let icon = results.weather[0].description;
             //console.log(typeof(temp));
             let bottomDiv = $('#bottomcCol');
             $('#topCol').empty();
             $('#topCol').append(cityAppend);
             $('#topCol').append(today + '<br>');
             $('#topCol').append('Temperature: ' + (parseInt(temp)) + ' F' + '<br>');
-            $('#topCol').append('Windspeed: ' + (parseInt(windspeed)) + ' MPH');
+            $('#topCol').append('Windspeed: ' + (parseInt(windspeed)) + ' MPH' + '<br>');
+            $('#topCol').append(`${icon}`);
 
         });
 
