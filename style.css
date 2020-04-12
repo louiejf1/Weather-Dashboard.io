@@ -46,6 +46,12 @@ table {
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
+	height: 100vh;
+	width: 100vw;
+	background-image: url(./Weather-Dashboard.io/img/city-lit-up-at-night-258173.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+
 }
  h2 {
 	 font-size: 1.2em;
@@ -66,7 +72,7 @@ p {
 }
 
 .topContainer {
-	background-color: rgb(75, 75, 75);
+	background-color: rgb(58, 75, 90);
 	color: whitesmoke;
 	font-size: 2em;
 	text-align: center;
@@ -99,6 +105,8 @@ p {
 	height: auto;
 	font-size: 1.5em;
 	text-align: center;
+	color: seashell;
+	background-color: slategrey;
 	
 }
 
@@ -110,11 +118,12 @@ p {
 }
 
 .tempDiv {
-	background-color: rgb(52, 52, 146);
+	background-color: slategray;
 	color: rgb(248, 248, 248);
 	padding: 15px;
 	margin: 5px;
 	border-radius: 10px;
+	border-color: snow;
 	height: 150px;
 	width: auto;
 	text-align: left;
